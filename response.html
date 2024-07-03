@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resposta</title>
+    <style>
+        body {
+            background-color: #8B0000;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        @keyframes confetti {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: white;
+            opacity: 0.7;
+            animation: confetti 5s linear infinite;
+        }
+        #response h1 {
+            z-index: 2;
+            position: relative;
+        }
+        .gif-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .gif-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="response">
+        <h1>aaaaaa te amo meu bem!!!</h1>
+        <div class="gif-container" id="gifContainer"></div>
+    </div>
+    <script>
+        const gifs = [
+            "https://media.tenor.com/dBuCk1xnXj8AAAAj/peach-and-goma-love-lift-up.gif",
+            "https://media.tenor.com/raOQW7SaYI4AAAAj/%E5%92%AC%E8%80%B3%E6%9C%B5.gif",
+            "https://media.tenor.com/JRSR7wFuoqIAAAAj/peach-and-goma-snuggle.gif",
+            "https://media.tenor.com/pqx__VdGqfYAAAAj/yelynn-yelynn-hun-hun.gif",
+            "https://media.tenor.com/96iRPxYwxvAAAAAj/white-cat-grey-cat-cat-couple.gif",
+            "https://media.tenor.com/LrSL7XDKVbgAAAAj/peachcat-cat.gif",
+            "https://media.tenor.com/sBiwUD-Vx7kAAAAj/yelynn-yelynnn.gif"
+        ];
+
+        const gifContainer = document.getElementById('gifContainer');
+
+        gifs.forEach(gifSrc => {
+            const gif = document.createElement('img');
+            gif.src = gifSrc;
+            gif.className = 'gif';
+            gifContainer.appendChild(gif);
+        });
+
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = `${Math.random() * 100}%`;
+            confetti.style.top = `${Math.random() * 100}%`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            confetti.style.animationDelay = `${Math.random() * 5}s`;
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>
+
+
+
+

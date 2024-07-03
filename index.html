@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: #8B0000;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .poem {
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+        }
+        #question {
+            font-size: 24px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            display: none;
+            margin-top: 20px;
+        }
+        #revealButton {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin-top: 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        #revealButton:hover {
+            background-color: red;
+            color: white;
+        }
+        #noButton {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative;
+        }
+        #noButton:hover {
+            background-color: red;
+            color: white;
+        }
+        #yesButton {
+            background-color: white;
+            color: red;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #yesButton:hover {
+            background-color: red;
+            color: white;
+        }
+        #initial img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="initial">
+        <h1 class="poem">"meu gatinho comunista, eu preciso te dizer, que eu acho que o vermelho fica tão bem em você"</h1>
+        <button id="revealButton">Clica aqui :)</button>
+        <div id="question">
+            <h2>Aceita ser meu namorado?</h2>
+            <img src="https://media.tenor.com/SwQT4BBJS0oAAAAj/peach-and-goma-peach-goma.gif" alt="Gatinho Animado">
+            <div>
+                <button id="yesButton">Sim</button>
+                <button id="noButton">Não</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const revealButton = document.getElementById('revealButton');
+        const question = document.getElementById('question');
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+
+        revealButton.addEventListener('click', () => {
+            question.style.display = 'block';
+            revealButton.style.display = 'none';
+        });
+
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.floor(Math.random() * (window.innerWidth - noButton.clientWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - noButton.clientHeight));
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            window.location.href = 'response.html';
+        });
+    </script>
+</body>
+</html>
+
+
+
+
